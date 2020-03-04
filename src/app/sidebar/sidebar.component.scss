@@ -1,0 +1,43 @@
+.sidebarelement {
+  position: relative;
+
+  &:after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 0.8px;
+    height: calc(100vh / 2);
+    background: #000000;
+  }
+
+  &_title {
+    color: #ffffff;
+    font-size: 2rem;
+    padding-left: 1rem;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+    margin: 0;
+    background-color: #A8BEC5;
+  }
+
+  &_items {
+    &:nth-child(odd) {
+      color: #ffffff !important;
+      background-color: #AD946E;
+    }
+
+    margin-right: 2rem;
+  }
+
+  &_item {
+    padding-left: 1rem;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+    font-size: 2rem;
+  }
+}
+
+
+
+

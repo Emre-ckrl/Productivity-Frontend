@@ -1,0 +1,14 @@
+<div class="todolist_title">
+  {{listTitle}}
+</div>
+
+<div class="todolist_content">
+  <div *ngFor="let todo of todos">
+    <label>
+      <input type="checkbox" data-toggle="toggle">
+      <span class="todolist_content_item">
+        {{todo}}
+      </span>
+    </label>
+  </div>
+</div>
