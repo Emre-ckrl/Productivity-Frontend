@@ -21,7 +21,6 @@ export class ChatBoxComponent implements OnInit {
     });
   }
 
-
   getMessages() {
     const httpOptions = {
       headers: new HttpHeaders({
