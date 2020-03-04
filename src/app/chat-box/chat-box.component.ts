@@ -16,7 +16,7 @@ export class ChatBoxComponent implements OnInit {
 
   ngOnInit(): void {
     this.getMessages().subscribe(data => {
-      this.messages = data;
+      console.table(data);
       console.log('received data');
     });
   }
@@ -29,7 +29,7 @@ export class ChatBoxComponent implements OnInit {
         'userid': '1'
       })
     };
-    return this.http.get<string[]>('localhost:1908/show/1', httpOptions);
+    return this.http.get('localhost:1908/show/1', httpOptions);
   }
 
 }
