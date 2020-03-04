@@ -3,15 +3,25 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ChatBoxComponent } from './chat-box/chat-box.component';
+import {HttpClientModule} from '@angular/common/http';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { TodolistBoxComponent } from './todolist-box/todolist-box.component';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ChatBoxComponent,
+    SidebarComponent,
+    TodolistBoxComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+    imports: [
+        BrowserModule,
+        HttpClientModule,
+        AppRoutingModule,
+        FormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

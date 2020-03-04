@@ -1,0 +1,7 @@
+{
+    "/show/*": {
+        "target": "http://localhost:1908",
+        "secure": false,
+        "logLevel": "debug"
+    }
+}
