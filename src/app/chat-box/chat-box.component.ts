@@ -9,7 +9,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 export class ChatBoxComponent implements OnInit {
 
   messages = [];
-  title = 'ToDos';
+  title = 'Chats';
 
   constructor(private http: HttpClient) {
   }
