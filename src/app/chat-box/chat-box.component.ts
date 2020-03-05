@@ -8,7 +8,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 })
 export class ChatBoxComponent implements OnInit {
 
-  messages = ['hello', 'helloworld', 'moin'];
+  messages = [];
   title = 'ToDos';
 
   constructor(private http: HttpClient) {
@@ -18,18 +18,12 @@ export class ChatBoxComponent implements OnInit {
     this.getMessages().subscribe(data => {
       console.table(data);
       console.log('received data');
+      this.messages = data;
     });
   }
 
   getMessages() {
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Access-Control-Allow-Origin': '*',
-        'Authorization': 'authkey',
-        'userid': '1'
-      })
-    };
-    return this.http.get('localhost:1908/show/1', httpOptions);
+    return this.http.get<string[]>('http://localhost:1908/show/2');
   }
 
 }
