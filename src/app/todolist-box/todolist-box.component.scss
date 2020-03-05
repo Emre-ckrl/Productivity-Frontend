@@ -17,6 +17,14 @@
   padding-left: 2rem;
 }
 
+
+.todolist {
+  display: grid;
+  grid-template-columns:45% 45%;
+  grid-template-rows: 100%;
+  grid-column-gap: 2rem;
+}
+
 .first_line {
   display: flex;
     justify-content: space-between;

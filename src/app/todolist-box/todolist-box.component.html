@@ -4,19 +4,34 @@
     {{listTitle}}
   </div>
 
-  <img class="plus_icon" src="assets/to-add-new-plus-create-icon.png" alt="text">
-
-
+  <img class="plus_icon"
+       src="assets/to-add-new-plus-create-icon.png"
+       alt="text" (click)="isCreatingTodo=true">
 </div>
 
+<input *ngIf="isCreatingTodo" #box (keyup.enter)="handleClick(box.value)">
 
-<div class="todolist_content">
-  <div *ngFor="let todo of todos">
-    <label>
-      <input type="checkbox" data-toggle="toggle">
-      <span class="todolist_content_item">
-        {{todo}}
+<div class="todolist">
+  <!--non-completed-->
+  <div class="todolist_content">
+    <div *ngFor="let todo of getNonCompletedTodos()">
+      <label >
+        <input type="checkbox" data-toggle="toggle" [(ngModel)]="todo.condition"  >
+        <span class="todolist_content_item">
+        {{todo.text}}
       </span>
-    </label>
+      </label>
+    </div>
+  </div>
+<!--completed-->
+  <div class="todolist_content">
+    <div *ngFor="let todo of getCompletedTodos()">
+      <label >
+        <input type="checkbox" data-toggle="toggle" [(ngModel)]="todo.condition">
+        <span class="todolist_content_item">
+        {{todo.text}}
+      </span>
+      </label>
+    </div>
   </div>
 </div>
