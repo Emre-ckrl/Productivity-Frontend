@@ -1,2 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
 
+body{
+  font-family: "Arial";
+  color: var(--dark);
+  transition: color 1s, background-color 1s;
+  background-color: var(--bright)
+}
+
+:root {
+  --bright: #fff;
+  --dark: #000;
+}
+
+[data-theme="dark"] {
+  --bright: #000;
+  --dark: #fff;
+}

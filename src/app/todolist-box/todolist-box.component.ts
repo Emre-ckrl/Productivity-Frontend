@@ -78,6 +78,7 @@ export class TodolistBoxComponent implements OnInit {
     todo.condition = true;
   }
 }
+console.log('test1')
 
 class ToDoRequestData {
   text: string;

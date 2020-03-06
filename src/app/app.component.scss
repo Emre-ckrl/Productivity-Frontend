@@ -1,34 +1,35 @@
-.spacer {
-  flex: 1;
-}
-
 .toolbar {
   height: 60px;
   display: flex;
   align-items: center;
   background-color: #31485D;
-  color: white;
-  font-weight: 600;
+  color: var(--bright);
+  padding-left: 4rem;
+  font-family: "avenir", monospace;
+  transition: background-color 1s ease-in-out;
+  @media (min-width: 1200px ) {
+    background-color: greenyellow;
+  }
+}
+
+.button{
+  justify-content: flex-end;
 }
 
 .toolbar img {
   margin: 0 16px;
 }
 
-.toolbar #twitter-logo {
-  height: 40px;
-  margin: 0 16px;
-}
-
-.toolbar #twitter-logo:hover {
-  opacity: 0.8;
-}
-
 .content {
   display: grid;
-  grid-template-columns:15% 85%;
+  grid-template-columns: 100%;
   grid-template-rows: 100%;
   grid-column-gap: 2rem;
+  background-color: var(--bright);
+  transition: background-color 1s;
+  @media (min-width: 700px ) {
+    grid-template-columns: 20% 80%;
+  }
 }
 
 .sidebar{

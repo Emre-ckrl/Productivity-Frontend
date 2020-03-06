@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +7,17 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'productivity';
+  theme = true;
+  franz = document.documentElement;
+
+  test() {
+    if (this.theme === true) {
+      this.franz.setAttribute('data-theme', 'dark');
+      this.theme = false;
+    } else {
+      this.franz.setAttribute('data-theme', 'light');
+      this.theme = true;
+    }
+  }
 }
+
