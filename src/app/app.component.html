@@ -6,10 +6,12 @@
 
 <!-- Main content view -->
 <div class="content">
-  <app-sidebar class="sidebar"></app-sidebar>
-  <app-todolist-box class="todolist"></app-todolist-box>
+  <app-sidebar></app-sidebar>
+  <div>
+    <router-outlet></router-outlet>
+  </div>
 </div>
-<!--<router-outlet></router-outlet>-->
+
 
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
 <script>

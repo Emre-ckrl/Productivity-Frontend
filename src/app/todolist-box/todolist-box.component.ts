@@ -15,14 +15,7 @@ export class TodolistBoxComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getToDos().subscribe(data => {
-      console.table(data);
-      console.log('received data');
-      data.forEach(todoText => {
-        const newTodo = new ToDoList(todoText, false);
-        this.todos.push(newTodo);
-      });
-    });
+    this.reloadToDoData();
   }
 
   getToDos() {
@@ -38,14 +31,7 @@ export class TodolistBoxComponent implements OnInit {
       console.log('created todo');
       this.isCreatingTodo = false;
 
-      this.getToDos().subscribe(data => {
-        console.table(data);
-        console.log('received data');
-        data.forEach(todoText => {
-          const newTodo = new ToDoList(todoText, false);
-          this.todos.push(newTodo);
-        });
-      });
+      this.reloadToDoData();
     });
   }
 
@@ -77,7 +63,20 @@ export class TodolistBoxComponent implements OnInit {
   complete(todo: ToDoList) {
     todo.condition = true;
   }
+
+  private reloadToDoData() {
+    this.getToDos().subscribe(data => {
+      this.todos = [];
+      console.table(data);
+      console.log('received data');
+      data.forEach(todoText => {
+        const newTodo = new ToDoList(todoText, false);
+        this.todos.push(newTodo);
+      });
+    });
+  }
 }
+
 console.log('test1')
 
 class ToDoRequestData {

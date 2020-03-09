@@ -1,6 +1,6 @@
 <!-- To-Do-List -->
 <div class="sidebarelement">
-  <h3 class="sidebarelement_title">
+  <h3 class="sidebarelement_title" (click)="goToToDos()">
     ToDo-Lists
   </h3>
 
@@ -11,12 +11,12 @@
 
 
 <div class="sidebarelement">
-  <h3 class="sidebarelement_title">
+  <h3 class="sidebarelement_title" (click)="goToChats()">
     Chats
   </h3>
 
   <div class="sidebarelement_items" *ngFor="let chat of chats">
-    <div class="sidebarelement_item">{{chat}}</div>
+    <div class="sidebarelement_item">{{chat.id}}</div>
   </div>
 </div>
 
