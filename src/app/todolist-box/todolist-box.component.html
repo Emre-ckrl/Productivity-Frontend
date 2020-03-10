@@ -1,38 +1,39 @@
-<div class="first_line">
+<div class="first__line">
 
-  <div class="todolist_title">
+  <div class="todolist__title">
     {{listTitle}}
   </div>
 
-  <svg alt="text" (click)="isCreatingTodo=true" class="plus_icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/><path d="M0 0h24v24H0z" fill="none"/></svg>
+  <svg alt="text" (click)="isCreatingTodo=true" class="plus__icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/><path d="M0 0h24v24H0z" fill="none"/></svg>
 </div>
 
-<input *ngIf="isCreatingTodo" #box (keyup.enter)="handleClick(box.value)">
 
-<div class="second_line">
+<div class="second__line">
 
 </div>
 
 <div class="todolist">
   <!--non-completed-->
-  <div class="todolist_content">
+  <div class="todolist__content">
     <h1>unfinished</h1>
-    <div *ngFor="let todo of getNonCompletedTodos()">
-      <label >
+    <div *ngFor="let todo of todoService.getConditionedTodos(todos, false)">
+      <label>
         <input type="checkbox" data-toggle="toggle" [(ngModel)]="todo.condition"  >
-        <span class="todolist_content_item">
-        {{todo.text}}
+        <span class="todolist__item">
+          {{todo.text}}
       </span>
       </label>
     </div>
+    <input *ngIf="isCreatingTodo" #box (keyup.enter)="onClick(box.value)">
   </div>
-<!--completed-->
-  <div class="todolist_content">
+
+  <!--completed-->
+  <div class="todolist__content">
     <h1> finished </h1>
-    <div *ngFor="let todo of getCompletedTodos()">
-      <label >
+    <div *ngFor="let todo of todoService.getConditionedTodos(todos, true)">
+      <label>
         <input type="checkbox" data-toggle="toggle" [(ngModel)]="todo.condition">
-        <span class="todolist_content_item">
+        <span class="todolist__item">
         {{todo.text}}
       </span>
       </label>

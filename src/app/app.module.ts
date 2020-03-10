@@ -8,13 +8,15 @@ import {HttpClientModule} from '@angular/common/http';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { TodolistBoxComponent } from './todolist-box/todolist-box.component';
 import {FormsModule} from '@angular/forms';
+import { SwitchComponent } from './button/switch/switch.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ChatBoxComponent,
     SidebarComponent,
-    TodolistBoxComponent
+    TodolistBoxComponent,
+    SwitchComponent
   ],
     imports: [
         BrowserModule,

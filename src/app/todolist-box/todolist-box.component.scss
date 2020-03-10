@@ -1,39 +1,37 @@
-.todolist_title {
-  font-size: 4rem;
-  color: var(--dark);
-}
-
-.todolost_item {
-  font-size: 1.5rem;
-  color: #000000;
-}
-
-.todolist_content {
-  font-size: 1.5rem;
-}
-
-.todolist_content_item {
-  padding-left: 2rem;
-}
-
 .todolist {
   display: grid;
   grid-template-columns: 45% 45%;
   grid-column-gap: 2rem;
+
+  &__line {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 10rem;
+  }
+
+  &__content {
+    font-size: 1.5rem;
+  }
+
+  &__item {
+    padding-left: 2rem;
+  }
+
+  &__title {
+    font-size: 4rem;
+    color: var(--dark);
+  }
 }
 
-.first_line {
-  display: flex;
-  justify-content: space-between;
-  padding-right: 10rem;
-}
 
-.plus_icon {
+.plus__icon {
   height: 3rem;
   width: 3rem;
 }
 
-.second_line {
+.first__line {
   display: flex;
+  justify-content: space-between;
+  padding-right: 10rem;
 }
 

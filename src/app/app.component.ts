@@ -6,18 +6,20 @@ import {Component} from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'productivity';
-  theme = true;
-  franz = document.documentElement;
+  title = 'Welcome to Productivity';
 
-  test() {
+  theme = true;
+  doc = document.documentElement;
+
+  eventFunction(event: any) {
     if (this.theme === true) {
-      this.franz.setAttribute('data-theme', 'dark');
+      this.doc.setAttribute('data-theme', 'dark');
       this.theme = false;
     } else {
-      this.franz.setAttribute('data-theme', 'light');
+      this.doc.setAttribute('data-theme', 'light');
       this.theme = true;
     }
   }
+
 }
 

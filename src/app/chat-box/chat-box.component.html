@@ -1,7 +1,7 @@
 <div class="title">{{title}}</div>
 
 <div *ngFor="let message of  messages">
-  <p class="message_p">{{message.text}}</p>
+  <p class="message__p">{{message.text}}</p>
   from: <span>{{message.sender.id}}, {{message.sender.name}}, {{message.sender.skinColor}}</span>
    to: <span>{{message.receiver.id}}, {{message.receiver.name}}, {{message.receiver.skinColor}}</span>
 

@@ -1,22 +1,27 @@
 <!-- To-Do-List -->
 <div class="sidebarelement">
-  <h3 class="sidebarelement_title" (click)="goToToDos()">
+  <h3 class="sidebarelement__title" id="todo-list" (click)="onClickToToDos()">
     ToDo-Lists
   </h3>
 
-  <div class="sidebarelement_items" *ngFor="let todolist of todolists">
-    <div class="sidebarelement_item">{{todolist}}</div>
+  <div *ngIf="isOpenTodoLists">
+    <div class="sidebarelement__items" *ngFor="let todolist of todolists">
+      <div class="sidebarelement__item">{{todolist}}</div>
+    </div>
   </div>
 </div>
 
 
 <div class="sidebarelement">
-  <h3 class="sidebarelement_title" (click)="goToChats()">
+  <h3 class="sidebarelement__title" (click)="onClickToChats()">
     Chats
   </h3>
 
-  <div class="sidebarelement_items" *ngFor="let chat of chats">
-    <div class="sidebarelement_item">{{chat.id}}</div>
+  <div *ngIf="isOpenChats">
+    <div class="sidebarelement__items" *ngFor="let chat of chats">
+      <div class="sidebarelement__item">{{chat.id}}</div>
+    </div>
+
   </div>
 </div>
 

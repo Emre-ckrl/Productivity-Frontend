@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {TodoService} from "../services/todo.service";
+import {ToDoList} from "../model/todo-list";
 
 @Component({
   selector: 'app-todolist-box',
@@ -11,61 +13,24 @@ export class TodolistBoxComponent implements OnInit {
   todos: ToDoList[] = [];
   isCreatingTodo = false;
 
-  constructor(private http: HttpClient) {
+  constructor(public todoService: TodoService) {
   }
 
   ngOnInit(): void {
-    this.reloadToDoData();
+    this.onReloadTodoData();
   }
 
-  getToDos() {
-    return this.http.get<string[]>('http://localhost:1908/todo/show/2');
-  }
-
-  handleClick(textt: any) {
-    const todo = new ToDoRequestData();
-    todo.id = 2;
-    todo.text = textt;
-
-    this.http.post('http://localhost:1908/todo/create', todo).subscribe(none => {
+  onClick(text: any) {
+    this.todoService.createTodo(text).subscribe(none => {
       console.log('created todo');
       this.isCreatingTodo = false;
 
-      this.reloadToDoData();
+      this.onReloadTodoData();
     });
   }
 
-  getCompletedTodos() {
-    const completed = [];
-
-    this.todos.forEach(todo => {
-      if (todo.condition === true) {
-        completed.push(todo);
-      }
-    });
-
-    return completed;
-
-  }
-
-  getNonCompletedTodos() {
-    const noncompleted = [];
-
-    this.todos.forEach(todo => {
-      if (todo.condition === false) {
-        noncompleted.push(todo);
-      }
-    });
-
-    return noncompleted;
-  }
-
-  complete(todo: ToDoList) {
-    todo.condition = true;
-  }
-
-  private reloadToDoData() {
-    this.getToDos().subscribe(data => {
+  private onReloadTodoData() {
+    this.todoService.getToDos().subscribe(data => {
       this.todos = [];
       console.table(data);
       console.log('received data');
@@ -74,24 +39,5 @@ export class TodolistBoxComponent implements OnInit {
         this.todos.push(newTodo);
       });
     });
-  }
-}
-
-console.log('test1')
-
-class ToDoRequestData {
-  text: string;
-  id: number;
-}
-
-class ToDoList {
-  text: string;
-  condition: boolean;
-  creator: any;
-
-
-  constructor(text: string, condition: boolean) {
-    this.text = text;
-    this.condition = condition;
   }
 }

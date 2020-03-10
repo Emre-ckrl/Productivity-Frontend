@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {HttpClient} from "@angular/common/http";
+import {Human} from "../model/human";
+import {HumanService} from "../services/human.service";
 
 @Component({
   selector: 'app-sidebar',
@@ -11,8 +13,10 @@ export class SidebarComponent implements OnInit {
 
   todolists = ['Work', 'School', 'Home'];
   chats: Human[] = [];
+  isOpenTodoLists = false;
+  isOpenChats = true;
 
-  constructor(private router: Router, private http: HttpClient) {
+  constructor(private router: Router, private http: HttpClient, public humanService: HumanService) {
   }
 
   ngOnInit(): void {
@@ -22,7 +26,7 @@ export class SidebarComponent implements OnInit {
   getHumans() {
     const humans: Human[] = [];
 
-    this.http.get<Message[]>('http://localhost:1908/show/2').subscribe(messages => {
+    this.humanService.getHumans().subscribe(messages => {
       console.log('received data');
 
       messages.forEach(message => humans.push(message.sender));
@@ -31,23 +35,15 @@ export class SidebarComponent implements OnInit {
     return humans;
   }
 
-  goToChats() {
+  onClickToChats() {
     this.router.navigate(['chats']);
+    this.isOpenChats = !this.isOpenChats;
   }
 
-  goToToDos() {
+  onClickToToDos() {
     this.router.navigate(['todos']);
+    this.isOpenTodoLists = !this.isOpenTodoLists;
   }
 }
 
-class Human {
-  id: number;
-  name: string;
-  skinColor: string;
-}
 
-class Message {
-  text: string;
-  receiver: Human;
-  sender: Human;
-}
