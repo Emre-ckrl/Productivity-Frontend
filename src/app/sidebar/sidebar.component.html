@@ -6,7 +6,9 @@
 
   <div *ngIf="isOpenTodoLists">
     <div class="sidebarelement__items" *ngFor="let todolist of todolists">
-      <div class="sidebarelement__item">{{todolist}}</div>
+      <div class="sidebarelement__item" (click)="onSelectTodolist(todolist)">
+        {{todolist.name}}
+      </div>
     </div>
   </div>
 </div>

@@ -3,6 +3,8 @@ import {Router} from '@angular/router';
 import {HttpClient} from "@angular/common/http";
 import {Human} from "../model/human";
 import {HumanService} from "../services/human.service";
+import {ToDoList} from "../model/to-do-list";
+import {TodoService} from "../services/todo.service";
 
 @Component({
   selector: 'app-sidebar',
@@ -11,16 +13,19 @@ import {HumanService} from "../services/human.service";
 })
 export class SidebarComponent implements OnInit {
 
-  todolists = ['Work', 'School', 'Home'];
+  todolists: ToDoList[] = [];
   chats: Human[] = [];
   isOpenTodoLists = false;
   isOpenChats = true;
 
-  constructor(private router: Router, private http: HttpClient, public humanService: HumanService) {
+  constructor(private router: Router, private http: HttpClient, public humanService: HumanService, public todoService: TodoService) {
   }
 
   ngOnInit(): void {
     this.chats = this.getHumans();
+    this.todoService.getToDoLists().subscribe(toDolists => {
+      this.todolists = toDolists;
+    });
   }
 
   getHumans() {
@@ -33,6 +38,12 @@ export class SidebarComponent implements OnInit {
     });
 
     return humans;
+  }
+
+  onSelectTodolist(todolist: ToDoList) {
+    this.todoService.selectTodoList(todolist);
+    this.todoService.selectedTodolist.next();
+
   }
 
   onClickToChats() {

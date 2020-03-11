@@ -1,7 +1,7 @@
 @import '../variablen';
 
 .toolbar {
-  height: 60px;
+  height: $toolbarHeight;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -21,6 +21,13 @@
   grid-column-gap: 2rem;
   background-color: var(--bright);
   transition: background-color 1s;
+  &__home {
+    width: 100%;
+    height: calc(100vh - #{$toolbarHeight});
+    z-index: -1;
+    background: url(/assets/art-artistic-background-1020315.jpg) no-repeat center center fixed;
+    background-size: cover;
+  }
   //@media (min-width: 700px ) {
   //  grid-template-columns: 20% 80%;
   //}

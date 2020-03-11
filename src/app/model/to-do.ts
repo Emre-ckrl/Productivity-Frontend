@@ -1,4 +1,4 @@
-export class ToDoList {
+export class ToDo {
   text: string;
   condition: boolean;
   creator: any;

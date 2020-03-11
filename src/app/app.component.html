@@ -1,11 +1,11 @@
 <!-- Toolbar -->
 <div class="toolbar" role="banner">
-  <h1 class="mat-display-1">{{title}}</h1>
+  <a href="/"><h1 class="mat-display-1">{{title}}</h1></a>
   <app-switch (testEvent)="eventFunction($event)"></app-switch>
 </div>
 
 <!-- Main content view -->
-<div class="content">
+<div [ngClass]="getContentClass()" >
   <app-sidebar></app-sidebar>
   <div>
     <router-outlet></router-outlet>

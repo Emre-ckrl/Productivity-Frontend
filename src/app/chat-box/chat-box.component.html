@@ -2,8 +2,18 @@
 
 <div *ngFor="let message of  messages">
   <p class="message__p">{{message.text}}</p>
-  from: <span>{{message.sender.id}}, {{message.sender.name}}, {{message.sender.skinColor}}</span>
-   to: <span>{{message.receiver.id}}, {{message.receiver.name}}, {{message.receiver.skinColor}}</span>
+
+  <div class="message__users">
+    <div class="sender">
+    from: <span>{{message.sender.id}}, {{message.sender.name}}, {{message.sender.skinColor}}</span>
+
+    </div>
+    <div class="receiver">
+    to: <span >{{message.receiver.id}}, {{message.receiver.name}}, {{message.receiver.skinColor}}</span>
+
+    </div>
+  </div>
+
 
 </div>
 
@@ -11,4 +21,6 @@
   <input #newMessage (keyup.enter)="sendMessage(newMessage.value,2,3)">
 </label>
 
+<div></div>
 
+<div></div>

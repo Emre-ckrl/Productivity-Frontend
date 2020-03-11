@@ -1,1 +1,13 @@
 $padding-lg : 4rem;
+$toolbarHeight : 4rem;
+
+
+:root {
+  --bright: #fff;
+  --dark: #000;
+}
+
+[data-theme="dark"] {
+  --bright: #3e3e3e;
+  --dark: #fff;
+}

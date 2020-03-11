@@ -9,6 +9,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { TodolistBoxComponent } from './todolist-box/todolist-box.component';
 import {FormsModule} from '@angular/forms';
 import { SwitchComponent } from './button/switch/switch.component';
+import { HomescreenComponent } from './homescreen/homescreen.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { SwitchComponent } from './button/switch/switch.component';
     ChatBoxComponent,
     SidebarComponent,
     TodolistBoxComponent,
-    SwitchComponent
+    SwitchComponent,
+    HomescreenComponent,
   ],
     imports: [
         BrowserModule,
