@@ -1,9 +1,7 @@
-import {Component, Input, OnDestroy, OnInit} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {TodoService} from "../services/todo.service";
-import {ToDo} from "../model/to-do";
-import {ToDoList} from "../model/to-do-list";
-import {Subscribable, Subscription} from "rxjs";
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {TodoService} from '../services/todo.service';
+import {ToDoList} from '../model/to-do-list';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-todolist-box',
@@ -23,12 +21,20 @@ export class TodolistBoxComponent implements OnInit, OnDestroy {
     this.newTodolistSelected = this.todoService.selectedTodolist$.subscribe(() => {
       this.todolist = this.todoService.selectedTodoList;
     });
+
   }
 
-  onClick(text: any, todolistName: string) {
+  onCreateTodo(text: any, todolistName: string) {
     this.todoService.createTodo(text, todolistName).subscribe(none => {
-      console.log('created todo');
       this.isCreatingTodo = false;
+
+      this.todoService.getToDoLists().subscribe(todoLists => {
+        this.todoService.todolists = todoLists;
+        this.todoService.todoLists.next();
+
+        this.todoService.selectedTodoList = todoLists[0];
+        this.todoService.selectedTodolist.next();
+      });
     });
   }
 

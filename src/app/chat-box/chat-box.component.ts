@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 import {ChatService} from "../services/chat.service";
 import {Message} from "../model/message";
 
@@ -23,15 +23,12 @@ export class ChatBoxComponent implements OnInit {
   sendMessage(newMessage: string, senderId: number, receiverId: number) {
     this.chatService.sendMessage(newMessage, senderId, receiverId)
       .subscribe(none => {
-        console.log('sent message');
         this.reloadMessageData();
       });
   }
 
   private reloadMessageData() {
     this.chatService.getMessages().subscribe(data => {
-      console.table(data);
-      console.log('received data');
       this.messages = data;
     });
   }

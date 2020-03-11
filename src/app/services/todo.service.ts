@@ -1,4 +1,4 @@
-import {Injectable, OnInit} from '@angular/core';
+import {Injectable} from '@angular/core';
 import {ToDoRequestData} from "../model/todo-request-data";
 import {HttpClient} from "@angular/common/http";
 import {ToDo} from "../model/to-do";
@@ -14,17 +14,21 @@ export class TodoService {
   public selectedTodolist$ = this.selectedTodolist.asObservable();
   selectedTodoList: ToDoList = new ToDoList();
 
+  public todoLists: Subject<any> = new Subject();
+  public todoLists$ = this.todoLists.asObservable();
+  public todolists: ToDoList[] = [];
+
   constructor(private http: HttpClient) {
     this.getToDoLists().subscribe(todoLists => {
-        this.selectedTodoList = todoLists[0];
-      }
-    );
+      this.todolists = todoLists;
+      this.todoLists.next();
+
+      this.selectedTodoList = this.todoLists[0];
+    });
   }
 
   selectTodoList(selectedTodoList: ToDoList) {
     this.selectedTodoList = selectedTodoList
-    console.log('select todo list:')
-    console.table(this.selectedTodoList);
   }
 
   getToDoLists() {

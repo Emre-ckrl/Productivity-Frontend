@@ -1,5 +1,4 @@
 import {Component} from '@angular/core';
-import {Route} from "@angular/router";
 
 @Component({
   selector: 'app-root',
@@ -23,7 +22,6 @@ export class AppComponent {
   }
 
   public getContentClass(): string {
-    console.log('jasjd', location.pathname)
     if (location.pathname === '/') {
       return 'content content__home';
     }

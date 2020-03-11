@@ -24,7 +24,7 @@
       </span>
       </label>
     </div>
-    <input *ngIf="isCreatingTodo" #box (keyup.enter)="onClick(box.value, todolist.name)">
+    <input *ngIf="isCreatingTodo" #box (keyup.enter)="onCreateTodo(box.value, todolist.name)">
   </div>
 
   <!--completed-->
