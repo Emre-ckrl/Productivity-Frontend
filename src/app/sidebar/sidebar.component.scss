@@ -6,7 +6,7 @@
     font-size: 2rem;
     padding: 1rem 1rem 1rem 1rem;
     margin: 0;
-    background-color: #A8BEC5;
+    background-color: var(--light-blue);
 
     &:hover {
       background-color: #81949b;
@@ -15,8 +15,8 @@
 
   &__items {
     &:nth-child(odd) {
-      color: #ffffff !important;
-      background-color: #AD946E;
+      color: var(--bright) !important;
+      background-color: var(--beige);
 
       &:hover {
         background-color: #9b8267;
@@ -25,7 +25,7 @@
     &:nth-child(even){
       &:hover {
         background-color: #C0C6C4;
-        color: #ffffff ;
+        color: var(--bright) ;
       }
     }
   }

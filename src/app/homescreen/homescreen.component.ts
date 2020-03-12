@@ -9,7 +9,7 @@ import {count} from 'rxjs/operators';
 export class HomescreenComponent implements OnInit, OnDestroy {
 
   private readonly TYPING_DELAY = 100;
-  private readonly TIMEOUT_DELAY = 500;
+  private readonly TIMEOUT_DELAY = 200;
   private readonly REMOVE_DELAY = 200;
 
   private words = ['Welcome to my first Angular project'];

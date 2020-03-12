@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {HumanService} from "./services/human.service";
 
 @Component({
   selector: 'app-root',
@@ -11,6 +12,8 @@ export class AppComponent {
   theme = true;
   doc = document.documentElement;
 
+  constructor(public humanService: HumanService) {
+  }
   eventFunction(event: any) {
     if (this.theme === true) {
       this.doc.setAttribute('data-theme', 'dark');

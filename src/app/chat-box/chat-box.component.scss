@@ -38,7 +38,7 @@ $borderRadius : 20px;
   &__sender{
     width: 50%;
     justify-self: end;
-    background-color: #24911b;
+    background-color: var(--green);
     padding: 1rem;
     border-radius: $borderRadius;
   }

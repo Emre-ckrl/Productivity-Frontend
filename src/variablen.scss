@@ -4,10 +4,20 @@ $toolbarHeight : 4rem;
 
 :root {
   --bright: #fff;
-  --dark: #000;
+  --dark: #000000;
+  --blue: #31485D;
+  --light-blue: #A8BEC5;
+  --beige: #AD946E;
+  --yellow: #faebac;
+  --green: #24911b;
 }
 
 [data-theme="dark"] {
   --bright: #3e3e3e;
   --dark: #fff;
+  --blue: #31485D;
+  --light-blue: #56268b;
+  --beige: #236669;
+  --yellow: #823b2b;
+  --green: #18236a;
 }

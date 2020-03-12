@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {ChatService} from "../services/chat.service";
 import {Message} from "../model/message";
 import {log} from "util";
+import {HumanService} from "../services/human.service";
 
 @Component({
   selector: 'app-chat-box',
@@ -14,15 +15,15 @@ export class ChatBoxComponent implements OnInit {
   messages: Message[] = [];
   title = 'Chats';
 
-  constructor(private http: HttpClient, public chatService: ChatService) {
+  constructor(public chatService: ChatService, public humanService: HumanService) {
   }
 
   ngOnInit(): void {
     this.reloadMessageData();
   }
 
-  sendMessage(newMessage: string, senderId: number, receiverId: number) {
-    this.chatService.sendMessage(newMessage, senderId, receiverId)
+  sendMessage(newMessage: string, receiverId: number) {
+    this.chatService.sendMessage(newMessage, this.humanService.loggedInUser.id, receiverId)
       .subscribe(none => {
         this.reloadMessageData();
       });

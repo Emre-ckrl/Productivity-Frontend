@@ -28,15 +28,11 @@ export class TodoService {
   }
 
   selectTodoList(selectedTodoList: ToDoList) {
-    this.selectedTodoList = selectedTodoList
+    this.selectedTodoList = selectedTodoList;
   }
 
   getToDoLists() {
     return this.http.get<ToDoList[]>('http://localhost:1908/todos');
-  }
-
-  getToDos() {
-    return this.http.get<string[]>('http://localhost:1908/todo/show/2');
   }
 
   createTodo(text: string, todolistName: string) {
@@ -49,15 +45,7 @@ export class TodoService {
   }
 
   getConditionedTodos(todos: ToDo[], condition: boolean) {
-    const resultList = [];
-
-    todos.forEach(todo => {
-      if (todo.condition === condition) {
-        resultList.push(todo);
-      }
-    });
-
-    return resultList;
+    return todos.filter(todo => todo.condition === condition);
   }
 
 
