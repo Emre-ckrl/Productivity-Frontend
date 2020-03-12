@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {ChatService} from "../services/chat.service";
 import {Message} from "../model/message";
+import {log} from "util";
 
 @Component({
   selector: 'app-chat-box',
@@ -31,5 +32,21 @@ export class ChatBoxComponent implements OnInit {
     this.chatService.getMessages().subscribe(data => {
       this.messages = data;
     });
+  }
+
+
+  public getContentClass(message: Message, loggedInUserId: number): string {
+    let contentClass = '';
+
+    if (message.sender.id === loggedInUserId) {
+      contentClass = 'message__sender';
+      // todo schiebe nach rewchts
+    }
+    if (message.receiver.id === loggedInUserId) {
+      contentClass = 'message__receiver';
+      // todo schiebe nach links
+    }
+
+    return contentClass;
   }
 }

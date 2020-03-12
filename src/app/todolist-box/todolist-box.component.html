@@ -4,7 +4,11 @@
     {{todolist.name}}
   </div>
 
-  <svg alt="text" (click)="isCreatingTodo=true" class="plus__icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/><path d="M0 0h24v24H0z" fill="none"/></svg>
+  <svg alt="text" (click)="isCreatingTodo=true" class="plus__icon" xmlns="http://www.w3.org/2000/svg" height="24"
+       viewBox="0 0 24 24" width="24">
+    <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+    <path d="M0 0h24v24H0z" fill="none"/>
+  </svg>
 </div>
 
 
@@ -16,27 +20,30 @@
   <!--non-completed-->
   <div class="todolist__content">
     <h1>unfinished</h1>
-    <div *ngFor="let todo of todoService.getConditionedTodos(todolist.toDos, false)">
-      <label>
-        <input type="checkbox" data-toggle="toggle" [(ngModel)]="todo.condition"  >
-        <span class="todolist__item">
+    <div class="todolist__entries" *ngIf="todolist">
+      <div *ngFor="let todo of todoService.getConditionedTodos(todolist.toDos, false)">
+        <label>
+          <input type="checkbox" data-toggle="toggle" [(ngModel)]="todo.condition">
+          <span class="todolist__item">
           {{todo.text}}
       </span>
-      </label>
+        </label>
+      </div>
+      <input *ngIf="isCreatingTodo" #box (keyup.enter)="onCreateTodo(box.value, todolist.name)">
     </div>
-    <input *ngIf="isCreatingTodo" #box (keyup.enter)="onCreateTodo(box.value, todolist.name)">
   </div>
-
   <!--completed-->
   <div class="todolist__content">
     <h1> finished </h1>
-    <div *ngFor="let todo of todoService.getConditionedTodos(todolist.toDos, true)">
-      <label>
-        <input type="checkbox" data-toggle="toggle" [(ngModel)]="todo.condition">
-        <span class="todolist__item">
+    <div class="todolist__entries">
+      <div *ngFor="let todo of todoService.getConditionedTodos(todolist.toDos, true)">
+        <label>
+          <input type="checkbox" data-toggle="toggle" [(ngModel)]="todo.condition">
+          <span class="todolist__item">
         {{todo.text}}
       </span>
-      </label>
+        </label>
+      </div>
     </div>
   </div>
 </div>
