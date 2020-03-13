@@ -44,8 +44,12 @@ export class TodoService {
     return this.http.post('http://localhost:1908/todo/create', todo);
   }
 
-  getConditionedTodos(todos: ToDo[], condition: boolean) {
-    return todos.filter(todo => todo.condition === condition);
+  getConditionedTodos(todolist: ToDoList, condition: boolean) {
+    if (todolist && todolist.toDos.length !== 0) {
+      return todolist.toDos.filter(todo => todo.condition === condition);
+    }
+
+    return [];
   }
 
 

@@ -23,7 +23,9 @@ export class ChatBoxComponent implements OnInit {
   }
 
   sendMessage(newMessage: string, receiverId: number) {
-    this.chatService.sendMessage(newMessage, this.humanService.loggedInUser.id, receiverId)
+    const senderId = this.humanService.loggedInUser.id;
+    console.log('sender id' + senderId)
+    this.chatService.sendMessage(newMessage, senderId, receiverId)
       .subscribe(none => {
         this.reloadMessageData();
       });

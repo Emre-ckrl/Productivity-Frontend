@@ -3,7 +3,7 @@
 
 <div *ngFor="let message of  messages">
   <div class="message__box">
-    <div [ngClass]="getContentClass(message, 2)">
+    <div [ngClass]="getContentClass(message, this.humanService.loggedInUser.id)">
 
       <div class="message__content">
         <p class="message__p">{{message.text}}</p>

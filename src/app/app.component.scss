@@ -7,17 +7,20 @@
   justify-content: space-between;
   background-color: var(--blue);
   color: #ffffff;
-  padding: 0 2rem;
+  padding: 1rem 2rem;
   font-family: "avenir", monospace;
   transition: background-color 1s ease-in-out;
   @media (min-width: 1200px ) {
     background-color: #31485D;
   }
+  @media (min-width: 700px ) {
+    padding: 0 2rem;
+  }
 }
 
 .content {
   display: grid;
-  grid-template-columns: 20% calc(80% - 2rem);
+  grid-template-columns: 1fr;
   grid-column-gap: 2rem;
   background-color: var(--bright);
   transition: background-color 1s;
@@ -28,7 +31,7 @@
     background: url(/assets/art-artistic-background-1020315.jpg) no-repeat center center fixed;
     background-size: cover;
   }
-  //@media (min-width: 700px ) {
-  //  grid-template-columns: 20% 80%;
-  //}
+  @media (min-width: 700px ) {
+    grid-template-columns: 20% calc(80% - 2rem);
+  }
 }

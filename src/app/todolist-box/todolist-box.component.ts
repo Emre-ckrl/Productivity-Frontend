@@ -9,6 +9,7 @@ import {Subscription} from 'rxjs';
   styleUrls: ['./todolist-box.component.scss']
 })
 export class TodolistBoxComponent implements OnInit, OnDestroy {
+  todolistName = '';
   isCreatingTodo = false;
   todolist: ToDoList = this.todoService.selectedTodoList;
 
@@ -20,6 +21,7 @@ export class TodolistBoxComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.newTodolistSelected = this.todoService.selectedTodolist$.subscribe(() => {
       this.todolist = this.todoService.selectedTodoList;
+      this.todolistName = this.todolist.name;
     });
 
   }

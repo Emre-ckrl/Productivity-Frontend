@@ -14,7 +14,7 @@
   }
 
   &__items {
-    &:nth-child(odd) {
+    &:nth-child(even) {
       color: var(--bright) !important;
       background-color: var(--beige);
 
@@ -22,8 +22,8 @@
         background-color: #9b8267;
       }
     }
-    &:nth-child(even){
-      background-color: #823B2B;
+    &:nth-child(odd){
+      background-color: var(--blue);
       &:hover {
         background-color: #C0C6C4;
         color: var(--bright) ;
@@ -32,6 +32,8 @@
   }
 
   &__item {
+    word-break: break-all;
+    hyphens: auto;
     display: flex;
     align-items: center;
     justify-content: space-between;

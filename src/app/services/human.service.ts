@@ -20,7 +20,7 @@ export class HumanService {
   }
 
   getHumans() {
-    return this.http.get<Message[]>('http://localhost:1908/show/2');
+    return this.http.get<Message[]>('http://localhost:1908/show/1');
   }
 
   getHumanList() {
