@@ -17,6 +17,7 @@ export class SidebarComponent implements OnInit, OnDestroy {
   todolists: ToDoList[] = [];
   chats: Human[] = [];
   isOpenTodoLists = false;
+  isCreatingToDoList = false;
   isOpenChats = true;
 
   private todoListsSubscription: Subscription = Subscription.EMPTY;
@@ -58,6 +59,19 @@ export class SidebarComponent implements OnInit, OnDestroy {
     this.isOpenTodoLists = !this.isOpenTodoLists;
   }
 
+  onCreateTodoList(text: string) {
+    this.todoService.createTodoList(text).subscribe(none => {
+      // this.isCreatingTodoList = false;
+
+      this.todoService.getToDoLists().subscribe(todoLists => {
+        this.todoService.todolists = todoLists;
+        this.todoService.todoLists.next();
+
+        // this.todoService.selectedTodoList = todoLists[0];
+        //  this.todoService.selectedTodolist.next();
+      });
+    });
+  }
 
 
   public ngOnDestroy(): void {

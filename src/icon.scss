@@ -1,0 +1,13 @@
+.plus__icon {
+  height: 4rem;
+  width: 4rem;
+  fill: var(--dark);
+
+  &--white{
+    fill: #ffffff;
+  }
+  &--sm{
+    height: 2rem;
+    width: 2rem;
+  }
+}

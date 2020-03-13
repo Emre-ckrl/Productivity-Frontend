@@ -49,5 +49,14 @@ export class TodoService {
   }
 
 
+  createTodoList(text: string) {
+    const todolist = new ToDoRequestData();
+    todolist.id = 2;
+    todolist.text = text;
+    console.log('click');
+
+    return this.http.post('http://localhost:1908/todolist/create', todolist);
+  }
+
 }
 

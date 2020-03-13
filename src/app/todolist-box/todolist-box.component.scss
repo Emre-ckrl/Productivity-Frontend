@@ -27,12 +27,10 @@
     padding: 2rem;
     border-radius: 1rem;
   }
-}
 
-
-.plus__icon {
-  height: 4rem;
-  width: 4rem;
+  &__input{
+    width: 100%;
+  }
 }
 
 .first__line {

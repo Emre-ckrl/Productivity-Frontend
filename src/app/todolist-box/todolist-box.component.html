@@ -29,7 +29,7 @@
           </span>
         </label>
       </div>
-      <input *ngIf="isCreatingTodo" #box (keyup.enter)="onCreateTodo(box.value, todolist.name)">
+      <input class="todolist__input" *ngIf="isCreatingTodo" #box (keyup.enter)="onCreateTodo(box.value, todolist.name)">
     </div>
   </div>
   <!--completed-->

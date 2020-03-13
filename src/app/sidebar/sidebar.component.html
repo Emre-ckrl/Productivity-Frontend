@@ -1,29 +1,52 @@
 <!-- To-Do-List -->
 <div class="sidebarelement">
-  <h3 class="sidebarelement__title" id="todo-list" (click)="onClickToToDos()">
+  <h3 class="sidebarelement__title"
+      id="todo-list"
+      (click)="onClickToToDos()">
     ToDo-Lists
-  </h3>
+</h3>
 
-  <div *ngIf="isOpenTodoLists">
-    <div class="sidebarelement__items" *ngFor="let todolist of todolists">
-      <div class="sidebarelement__item" (click)="onSelectTodolist(todolist)">
-        {{todolist.name}}
-      </div>
-    </div>
+<div *ngIf="isOpenTodoLists">
+  <div class="sidebarelement__item"
+       style="background-color: #823b2b">
+    <span *ngIf="!isCreatingToDoList">new list</span>
+    <svg (click)="isCreatingToDoList = !isCreatingToDoList"
+         alt="text"
+         class="plus__icon--sm plus__icon--white"
+         xmlns="http://www.w3.org/2000/svg"
+         height="24"
+         viewBox="0 0 24 24"
+         width="24">
+      <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+      <path d="M0 0h24v24H0z"
+            fill="none"/>
+    </svg>
+    <input *ngIf="isCreatingToDoList"
+           (keydown.enter)="onCreateTodoList(newTodoBox.value)"
+           type="text"
+           #newTodoBox>
   </div>
 </div>
+  <div class="sidebarelement__items"
+  *ngFor="let todolist of todolists">
+    <div class="sidebarelement__item"
+    (click)="onSelectTodolist(todolist)">
+      {{todolist.name}}
+    </div>
+  </div>
 
-
-<div class="sidebarelement">
-  <h3 class="sidebarelement__title" (click)="onClickToChats()">
+  <h3 class="sidebarelement__title"
+      (click)="onClickToChats()">
     Chats
   </h3>
 
   <div *ngIf="isOpenChats">
-    <div class="sidebarelement__items" *ngFor="let chat of chats">
+    <div class="sidebarelement__items"
+         *ngFor="let chat of chats">
       <div class="sidebarelement__item">{{chat.id}}</div>
     </div>
 
   </div>
 </div>
+
 
